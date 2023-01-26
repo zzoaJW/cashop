@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 
 function App() {
   return (
@@ -17,7 +17,27 @@ function App() {
       </Navbar>
 
       <div className='main-banner'/>
-      
+
+      <Container>
+        <Row>
+          <Col sm>
+            <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="90%"/>
+            <h4>상품명</h4>
+            <p>상품설명</p>
+          </Col>
+          <Col sm>
+            <img src="https://codingapple1.github.io/shop/shoes2.jpg" width="90%"/>
+            <h4>상품명</h4>
+            <p>상품설명</p>
+          </Col>
+          <Col sm>
+            <img src="https://codingapple1.github.io/shop/shoes3.jpg" width="90%"/>
+            <h4>상품명</h4>
+            <p>상품설명</p>
+          </Col>
+        </Row>
+    </Container>
+
     </div>
   );
 }
