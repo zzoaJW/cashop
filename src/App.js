@@ -15,6 +15,9 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
+
+      <div className='main-banner'/>
+      
     </div>
   );
 }

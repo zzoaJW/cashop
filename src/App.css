@@ -1,3 +1,10 @@
+.main-banner{
+  height: 600px;
+  background-image: url('./imgs/mainbannerimg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 .App {
   text-align: center;
 }
