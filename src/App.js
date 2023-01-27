@@ -7,7 +7,7 @@ import data from './data.js';
 
 function App() {
 
-  let [furniture] = useState(data);
+  let [furnitures] = useState(data);
 
   return (
     <div className="App">
@@ -26,26 +26,27 @@ function App() {
 
       <Container>
         <Row>
-          <Col sm>
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/166009106474136296.jpg?gif=1&w=960&h=960&c=c&webp=1" width="100%"/>
-            <h4>{furniture[0].title}</h4>
-            <p>{furniture[0].content}</p>
-          </Col>
-          <Col sm>
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/164388564242609760.jpg?gif=1&w=960&h=960&c=c&webp=1" width="100%"/>
-            <h4>상품명</h4>
-            <p>상품설명</p>
-          </Col>
-          <Col sm>
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/161554859365237314.jpg?gif=1&w=960&h=960&c=c&webp=1" width="100%"/>
-            <h4>상품명</h4>
-            <p>상품설명</p>
-          </Col>
+          {
+            furnitures.map(function(f, i){
+              return (
+                <Card furnitures={f}/>
+              )
+            })
+          }
         </Row>
-    </Container>
-
+      </Container>
     </div>
   );
+}
+
+function Card(props){
+  return (
+    <Col sm>
+      <img src={props.furnitures.img} width="80%"/>
+      <h4>{props.furnitures.title}</h4>
+      <p>{props.furnitures.content}</p>
+    </Col>
+  )
 }
 
 export default App;
