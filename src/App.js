@@ -15,7 +15,6 @@ function App() {
 
   return (
     <div className="App">
-
       <Navbar bg="light" variant="light">
         <Container>
           <Navbar.Brand href="/">z(0o0a)</Navbar.Brand>
@@ -49,6 +48,15 @@ function HomePage(props){
       <div className='main-banner'/>
       
       <Container>
+        <Row>
+          {
+            props.furnitures.map(function(f, i){
+              return (
+                <Card furnitures={f}/>
+              )
+            })
+          }
+        </Row>
         <Row>
           {
             props.furnitures.map(function(f, i){
