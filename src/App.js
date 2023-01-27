@@ -2,14 +2,16 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 import { useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 
 import data from './data.js';
 import DetailPage from './pages/detailPage.js';
+import AboutPage from './pages/aboutPage';
 
 function App() {
 
   let [furnitures] = useState(data);
+  let navigate = useNavigate();
 
   return (
     <div className="App">
@@ -30,7 +32,7 @@ function App() {
           <HomePage furnitures={furnitures}/>
         }/>
         <Route path='/about' element={
-          <div>z(0o0a)가 뭐냐면...</div>
+          <AboutPage/>
         }/>
         <Route path='/detail' element={
           <DetailPage/>
@@ -44,8 +46,8 @@ function App() {
 function HomePage(props){
   return (
     <>
-      <div className='main-banner' href='https://www.naver.com/'/>
-
+      <div className='main-banner'/>
+      
       <Container>
         <Row>
           {
