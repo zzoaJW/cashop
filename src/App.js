@@ -9,6 +9,7 @@ import data from './data.js';
 import HomePage from './pages/homePage';
 import AboutPage from './pages/aboutPage';
 import DetailPage from './pages/detailPage.js';
+import ThreeDPage from './pages/threeDPage.js';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navs/>
+      <Navs navigate={navigate}/>
 
       <Routes>
         <Route path='/' element={
@@ -25,9 +26,18 @@ function App() {
         }/>
         <Route path='/about' element={
           <AboutPage/>
-        }/>
+        }>
+          <Route path='project' element={ <p>이 프로젝트는 말이죠...</p> }/>
+          <Route path='member' element={ <p>재원이가 만들어써요</p> }/>
+        </Route>
         <Route path='/detail' element={
           <DetailPage/>
+        }/>
+        <Route path='/3d' element={
+          <ThreeDPage/>
+        }/>
+        <Route path='*' element={
+          <div>없는 페이지 입니다.</div>
         }/>
       </Routes>
       
@@ -35,15 +45,16 @@ function App() {
   );
 }
 
-function Navs(){
+function Navs(props){
   return (
     <Navbar bg="light" variant="light">
       <Container>
-        <Navbar.Brand href="/">z(0o0a)</Navbar.Brand>
+        <Navbar.Brand onClick={()=>{ props.navigate("/")}}>z(0o0a)</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/about">Sweet</Nav.Link>
-          <Nav.Link href="/detail">Home</Nav.Link>
+          <Nav.Link onClick={()=>{ props.navigate("/")}}>Home</Nav.Link>
+          <Nav.Link onClick={()=>{ props.navigate("/about")}}>Sweet</Nav.Link>
+          <Nav.Link onClick={()=>{ props.navigate("/detail")}}>Hooooooooome</Nav.Link>
+          <Nav.Link onClick={()=>{ props.navigate("/3d")}}>!</Nav.Link>
         </Nav>
       </Container>
     </Navbar>
