@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
 
 function DetailPage(props){
     let {id} = useParams();
