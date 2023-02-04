@@ -6,7 +6,7 @@ function AboutPage(){
 
     return (
         <>
-            <h4>회사 정보임</h4>
+            <h4>Shopping Mall for Sweet Furnitures !</h4>
             <button onClick={()=>{ navigate("/about/project")}}>project</button> <button onClick={()=>{ navigate("/about/member")}}>member</button>
             <Outlet/>
         </>

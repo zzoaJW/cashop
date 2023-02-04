@@ -27,11 +27,11 @@ function App() {
         <Route path='/about' element={
           <AboutPage/>
         }>
-          <Route path='project' element={ <p>이 프로젝트는 말이죠...</p> }/>
-          <Route path='member' element={ <p>재원이가 만들어써요</p> }/>
+          <Route path='project' element={ <p>This project is simple React practice.</p> }/>
+          <Route path='member' element={ <p>Made by JW Kim</p> }/>
         </Route>
-        <Route path='/detail' element={
-          <DetailPage/>
+        <Route path='/detail/:id' element={
+          <DetailPage furnitures={furnitures}/>
         }/>
         <Route path='/3d' element={
           <ThreeDPage/>
@@ -54,7 +54,7 @@ function Navs(props){
           <Nav.Link onClick={()=>{ props.navigate("/")}}>Home</Nav.Link>
           <Nav.Link onClick={()=>{ props.navigate("/about")}}>Sweet</Nav.Link>
           <Nav.Link onClick={()=>{ props.navigate("/detail")}}>Hooooooooome</Nav.Link>
-          <Nav.Link onClick={()=>{ props.navigate("/3d")}}>!</Nav.Link>
+          <Nav.Link onClick={()=>{ props.navigate("/3d")}}> </Nav.Link>
         </Nav>
       </Container>
     </Navbar>
