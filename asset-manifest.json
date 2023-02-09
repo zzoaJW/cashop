@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/cashop/static/css/main.5fd58861.css",
+    "main.js": "/cashop/static/js/main.4a7dba94.js",
+    "static/js/787.ac72da5c.chunk.js": "/cashop/static/js/787.ac72da5c.chunk.js",
+    "static/media/mainbannerimg.jpg": "/cashop/static/media/mainbannerimg.7b3f4dc85b547d4aef22.jpg",
+    "index.html": "/cashop/index.html",
+    "main.5fd58861.css.map": "/cashop/static/css/main.5fd58861.css.map",
+    "main.4a7dba94.js.map": "/cashop/static/js/main.4a7dba94.js.map",
+    "787.ac72da5c.chunk.js.map": "/cashop/static/js/787.ac72da5c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5fd58861.css",
+    "static/js/main.4a7dba94.js"
+  ]
+}
