@@ -53,7 +53,7 @@ function Navs(props){
         <Nav className="me-auto">
           <Nav.Link onClick={()=>{ props.navigate("/")}}>Home</Nav.Link>
           <Nav.Link onClick={()=>{ props.navigate("/about")}}>Sweet</Nav.Link>
-          <Nav.Link onClick={()=>{ props.navigate("/detail")}}>Hooooooooome</Nav.Link>
+          <Nav.Link onClick={()=>{ props.navigate("/detail/1")}}>Hooooooooome</Nav.Link>
           <Nav.Link onClick={()=>{ props.navigate("/3d")}}> </Nav.Link>
         </Nav>
       </Container>
