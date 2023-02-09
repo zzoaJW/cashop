@@ -21,6 +21,9 @@ function App() {
       <Navs navigate={navigate}/>
 
       <Routes>
+        <Route path='/cashop' element={
+          <HomePage furnitures={furnitures}/>
+        }/>
         <Route path='/' element={
           <HomePage furnitures={furnitures}/>
         }/>
