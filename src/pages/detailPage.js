@@ -9,17 +9,24 @@ function DetailPage(props){
     let {id} = useParams();
     let findFurniuture = props.furnitures.find((e) => e.id == id);
 
+    let [txt, setTxt] = useState("")
     let [count, setCount] = useState(0)
     let [sale, setSale] = useState(true);
     useEffect(()=>{
-        // 타이머 동작
-        let a = setTimeout(()=>{ setSale(false) }, 2000)
-
-        return ()=>{
-            // 기존 타이머 제거
-            clearTimeout(a)
+        setTimeout(()=>{ 
+            setSale(false)
+        }, 2000)
+        
+        const regex = /[0-9]/
+        if(!regex.test(txt)){
+            alert('숫자만 쓰세요')
         }
-    }, [])
+
+        // if(isNaN(txt)){
+        //     alert('숫자만 쓰세요')
+        // }
+        
+    }, [txt])
 
     return (
         <div className="container">
@@ -32,6 +39,7 @@ function DetailPage(props){
                 <div className="col-md-6">
                     <img src={findFurniuture.img} width="100%" />
                 </div>
+                <input placeholder='수량을 적어주세요' onChange={(e)=>{setTxt(e.target.value);}}/>
                 <div className="col-md-6">
                     <h4 className="pt-5">{findFurniuture.title}</h4>
                     <p>{findFurniuture.content}</p>
