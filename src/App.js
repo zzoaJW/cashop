@@ -22,10 +22,10 @@ function App() {
 
       <Routes>
         <Route path='/cashop' element={
-          <HomePage furnitures={furnitures}/>
+          <HomePage furnitures={furnitures} navigate={navigate}/>
         }/>
         <Route path='/' element={
-          <HomePage furnitures={furnitures}/>
+          <HomePage furnitures={furnitures} navigate={navigate}/>
         }/>
         <Route path='/about' element={
           <AboutPage/>

@@ -10,7 +10,8 @@ function HomePage(props){
             {
               props.furnitures.map(function(f, i){
                 return (
-                  <Card furnitures={f}/>
+                  // navigate 외않됨?
+                  <Card furnitures={f} onClick={()=>{ props.navigate("/detail/1")}}/>
                 )
               })
             }
@@ -23,7 +24,7 @@ function HomePage(props){
   function Card(props){
     return (
       <Col sm>
-        <img src={props.furnitures.img} width="80%"/>
+        <img src={props.furnitures.img} width="80%" />
         <h4>{props.furnitures.title}</h4>
         <p>{props.furnitures.content}</p>
       </Col>
