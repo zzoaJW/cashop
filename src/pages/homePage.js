@@ -23,7 +23,7 @@ function HomePage(props){
 
   function Card(props){
     return (
-      <Col sm>
+      <Col>
         <img src={props.furnitures.img} width="80%" />
         <h4>{props.furnitures.title}</h4>
         <p>{props.furnitures.content}</p>
