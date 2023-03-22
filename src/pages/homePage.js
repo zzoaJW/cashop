@@ -16,6 +16,20 @@ function HomePage(props){
             }
           </Row>
         </Container>
+
+        <br/>
+
+        <Container>
+          <Row>
+            {
+              props.moreFuni.map(function(f, i){
+                return (
+                  <Card2 furnitures={f}/>
+                )
+              })
+            }
+          </Row>
+        </Container>
       </>
     )
   }
@@ -24,6 +38,15 @@ function HomePage(props){
     return (
       <Col>
         <img src={props.furnitures.img} width="80%" onClick={()=>{ props.navigate(`/detail/${props.id}`)}}/>
+        <h4>{props.furnitures.title}</h4>
+        <p>{props.furnitures.content}</p>
+      </Col>
+    )
+  }
+
+  function Card2(props){
+    return (
+      <Col>
         <h4>{props.furnitures.title}</h4>
         <p>{props.furnitures.content}</p>
       </Col>
