@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
-import axios from 'axios';
 
 import data from './data.js';
 
@@ -15,7 +14,6 @@ import ThreeDPage from './pages/threeDPage.js';
 
 function App() {
   let [furnitures] = useState(data);
-  let [moreFuni, setMoreFun] = useState([]);
   let navigate = useNavigate();
 
   return (
@@ -24,10 +22,10 @@ function App() {
 
       <Routes>
         <Route path='/cashop' element={
-          <HomePage furnitures={furnitures} navigate={navigate} moreFuni={moreFuni}/>
+          <HomePage furnitures={furnitures} navigate={navigate}/>
         }/>
         <Route path='/' element={
-          <HomePage furnitures={furnitures} navigate={navigate} moreFuni={moreFuni}/>
+          <HomePage furnitures={furnitures} navigate={navigate}/>
         }/>
         <Route path='/about' element={
           <AboutPage/>
@@ -46,15 +44,7 @@ function App() {
         }/>
       </Routes>
 
-      <button onClick={ ()=>{
-        axios.get('https://codingapple1.github.io/shop/data2.json')
-        .then((result)=>{ 
-          setMoreFun(result.data)
-        })
-        .catch(()=>{
-          alert('Bad Request')
-        })
-      } }>더보기</button>
+
       
     </div>
   );
