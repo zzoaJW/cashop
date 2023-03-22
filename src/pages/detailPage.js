@@ -16,15 +16,10 @@ function DetailPage(props){
         setTimeout(()=>{ 
             setSale(false)
         }, 2000)
-        
-        const regex = /[0-9]/
-        if(!regex.test(txt)){
+
+        if(isNaN(txt)){
             alert('숫자만 쓰세요')
         }
-
-        // if(isNaN(txt)){
-        //     alert('숫자만 쓰세요')
-        // }
         
     }, [txt])
 
