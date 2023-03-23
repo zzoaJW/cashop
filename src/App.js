@@ -13,7 +13,7 @@ import ThreeDPage from './pages/threeDPage.js';
 
 
 function App() {
-  let [furnitures] = useState(data);
+  let [furnitures, setFurnitures] = useState(data);
   let navigate = useNavigate();
 
   return (
@@ -22,10 +22,10 @@ function App() {
 
       <Routes>
         <Route path='/cashop' element={
-          <HomePage furnitures={furnitures} navigate={navigate}/>
+          <HomePage furnitures={furnitures} setFurnitures={setFurnitures} navigate={navigate}/>
         }/>
         <Route path='/' element={
-          <HomePage furnitures={furnitures} navigate={navigate}/>
+          <HomePage furnitures={furnitures} setFurnitures={setFurnitures} navigate={navigate}/>
         }/>
         <Route path='/about' element={
           <AboutPage/>
