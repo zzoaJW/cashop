@@ -40,21 +40,21 @@ function HomePage(props){
       */}
       <br/>
       <button onClick={ ()=>{
-      axios.get('https://codingapple1.github.io/shop/data2.json')
-          .then((result)=>{
-            setLoading(true)
-            props.setFurnitures([...props.furnitures, ...result.data.slice(loadFunNum, loadFunNum+1)])
-            setLoadFunNum(loadFunNum+1)
-            setLoading(false)
-            
-            {
-              return loadFunNum >= result.data.length? alert('마지막 상품입니다.') : null
-            }
-          })
-          .catch((e)=>{
-            setLoading(false)
-            alert(e)
-          })
+        axios.get('https://codingapple1.github.io/shop/data2.json')
+            .then((result)=>{
+              setLoading(true)
+              props.setFurnitures([...props.furnitures, ...result.data.slice(loadFunNum, loadFunNum+1)])
+              setLoadFunNum(loadFunNum+1)
+              setLoading(false)
+              
+              {
+                return loadFunNum >= result.data.length? alert('마지막 상품입니다.') : null
+              }
+            })
+            .catch((e)=>{
+              setLoading(false)
+              alert(e)
+            })
       } }>더보기</button>
 
     </>
