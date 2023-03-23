@@ -5,6 +5,14 @@
   background-position: center;
 }
 
+.loading{
+  width: 30px;
+  height: 30px;
+  background-image: url('./imgs/loading.gif');
+  background-size: contain;
+  margin: auto;
+}
+
 .App {
   text-align: center;
 }
