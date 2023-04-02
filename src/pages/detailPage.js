@@ -1,14 +1,16 @@
-import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+
+import { Button, Row, Col } from 'react-bootstrap';
 import TextField from '@mui/material/TextField';
 
 function DetailPage(props){
 
-
     let {id} = useParams();
     let findFurniuture = props.furnitures.find((e) => e.id == id);
+
+    let [tab, setTab] = useState(1);
 
     let [cnt, setCnt] = useState("")
     let [discount, setDiscount] = useState(true)
@@ -32,12 +34,15 @@ function DetailPage(props){
             }
             <div className="row">
                 <div className="col-md-6">
-                    <img src={findFurniuture.img} width="100%" />
+                    <img src={findFurniuture.img} width="100%"/>
                 </div>
                 <div className="col-md-6">
-                    <h4 className="pt-5">{findFurniuture.title}</h4>
-                    <p>{findFurniuture.content}</p>
-                    <p>{findFurniuture.price}</p>
+                    <h4 className="pt-5" style={{color:'#3b3b3b'}}>{findFurniuture.title}</h4>
+                    <p style={{color:'#3b3b3b'}}>{findFurniuture.content}</p>
+                    <p style={{color:'#3b3b3b'}}>{findFurniuture.price}</p>
+
+                    <div style={{ margin:'30px' }}/>
+
                     <TextField fullWidth color="success" label="수량" type="number"
                         onChange={(e)=>{
                                 if(isNaN(cnt)){
@@ -51,14 +56,39 @@ function DetailPage(props){
                                 }
                             }}/>
                     <p/>
-                    <Button variant="outline-success" 
+                    <Button style={{color:'#70996e'}} variant="outline-success" 
                         disabled={btnDisable}
                         onClick={()=>{
                                 alert('\'' + findFurniuture.title + '\' 상품 ' + cnt + '개 주문 완료')
                             }}>주문하기</Button>
                 </div>
+
+                <div style={{ margin:'30px' }}/>
+
+                <div>
+                    <Row>
+                        <Col style={{color:'#88b586'}} onClick={()=>{ setTab(1) }}>info</Col>
+                        <Col style={{color:'#88b586'}} onClick={()=>{ setTab(2) }}>review</Col>
+                    </Row>
+                    <hr width="100%" style={{color:'#88b586'}}/>
+                    <TabContent tab={tab}/>
+                </div>
+                
+                <div style={{ margin:'50px' }}/>
+                <p style={{position: 'fixed', bottom: 0, fontSize:'5px', color:'#88b586'}}>{findFurniuture.title}</p>
             </div>
         </div> 
+    )
+}
+
+function TabContent(props){
+    if(props.tab == 1){
+        return (
+            <p style={{color:'#3b3b3b'}}>인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 </p>
+        )
+    }
+    return (
+        <p style={{color:'#3b3b3b'}}>리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 </p>
     )
 }
 
