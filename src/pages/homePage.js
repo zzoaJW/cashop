@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Navbar, Container, Nav, Row, Col} from 'react-bootstrap';
+import { Navbar, Container, Nav, Row, Col, Button} from 'react-bootstrap';
 import axios from 'axios';
 
 function HomePage(props){
@@ -38,8 +38,8 @@ function HomePage(props){
       // 버튼 3번 클릭 : 상품이 더 없다고 알려주기
       // 공통 : 버튼 클릭시 "로딩중" 띄우기 
       */}
-      <br/>
-      <button onClick={ ()=>{
+      <div style={{ margin:'40px' }}/>
+      <Button onClick={ ()=>{
         axios.get('https://codingapple1.github.io/shop/data2.json')
             .then((result)=>{
               setLoading(true)
@@ -55,7 +55,7 @@ function HomePage(props){
               setLoading(false)
               alert(e)
             })
-      } }>더보기</button>
+      }} variant='black'>상품 더보기</Button>
 
     </>
   )
