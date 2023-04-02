@@ -61,21 +61,12 @@ function HomePage(props){
   )
 }
 
-  function Card(props){
+  function Card({furnitures, navigate, id}){
     return (
-      <Col onClick={()=>{ props.navigate(`/detail/${props.id}`)}}>
-        <img src={props.furnitures.img} width="80%"/>
-        <h4>{props.furnitures.title}</h4>
-        <p>{props.furnitures.content}</p>
-      </Col>
-    )
-  }
-
-  function Card2(props){
-    return (
-      <Col>
-        <h4>{props.furnitures.title}</h4>
-        <p>{props.furnitures.content}</p>
+      <Col onClick={()=>{ navigate(`/detail/${id}`)}}>
+        <img src={furnitures.img} width="80%"/>
+        <h4>{furnitures.title}</h4>
+        <p>{furnitures.content}</p>
       </Col>
     )
   }

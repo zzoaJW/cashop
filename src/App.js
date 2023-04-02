@@ -50,16 +50,16 @@ function App() {
   );
 }
 
-function Navs(props){
+function Navs({navigate}){
   return (
     <Navbar bg="light" variant="light">
       <Container>
-        <Navbar.Brand onClick={()=>{ props.navigate("/")}}>z(0o0a)</Navbar.Brand>
+        <Navbar.Brand onClick={()=>{ navigate("/")}}>z(0o0a)</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link onClick={()=>{ props.navigate("/")}}>Home</Nav.Link>
-          <Nav.Link onClick={()=>{ props.navigate("/about")}}>Sweet</Nav.Link>
-          <Nav.Link onClick={()=>{ props.navigate("/detail/1")}}>Hooooooooome</Nav.Link>
-          <Nav.Link onClick={()=>{ props.navigate("/3d")}}> </Nav.Link>
+          <Nav.Link onClick={()=>{ navigate("/")}}>Home</Nav.Link>
+          <Nav.Link onClick={()=>{ navigate("/about")}}>Sweet</Nav.Link>
+          <Nav.Link onClick={()=>{ navigate("/detail/1")}}>Hooooooooome</Nav.Link>
+          <Nav.Link onClick={()=>{ navigate("/3d")}}> </Nav.Link>
         </Nav>
       </Container>
     </Navbar>

@@ -10,7 +10,7 @@ function DetailPage(props){
     let {id} = useParams();
     let findFurniuture = props.furnitures.find((e) => e.id == id);
 
-    let [tab, setTab] = useState(1);
+    let [tab, setTab] = useState(0);
 
     let [cnt, setCnt] = useState("")
     let [discount, setDiscount] = useState(true)
@@ -67,8 +67,8 @@ function DetailPage(props){
 
                 <div>
                     <Row>
-                        <Col style={{color:'#88b586'}} onClick={()=>{ setTab(1) }}>info</Col>
-                        <Col style={{color:'#88b586'}} onClick={()=>{ setTab(2) }}>review</Col>
+                        <Col style={{color:'#88b586'}} onClick={()=>{ setTab(0) }}>info</Col>
+                        <Col style={{color:'#88b586'}} onClick={()=>{ setTab(1) }}>review</Col>
                     </Row>
                     <hr width="100%" style={{color:'#88b586'}}/>
                     <TabContent tab={tab}/>
@@ -81,15 +81,11 @@ function DetailPage(props){
     )
 }
 
-function TabContent(props){
-    if(props.tab == 1){
-        return (
-            <p style={{color:'#3b3b3b'}}>인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 </p>
-        )
-    }
-    return (
-        <p style={{color:'#3b3b3b'}}>리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 </p>
-    )
+function TabContent({tab}){
+    return [
+        <p style={{color:'#3b3b3b'}}>인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 </p>,
+        <p style={{color:'#3b3b3b'}}>리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 </p> 
+    ][tab]
 }
 
 export default DetailPage;
