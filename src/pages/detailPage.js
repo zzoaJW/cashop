@@ -38,7 +38,7 @@ function DetailPage(props){
                     <h4 className="pt-5">{findFurniuture.title}</h4>
                     <p>{findFurniuture.content}</p>
                     <p>{findFurniuture.price}</p>
-                    <TextField label="수량" type="number" fullWidth="fullWidth" 
+                    <TextField fullWidth color="success" label="수량" type="number"
                         onChange={(e)=>{
                                 if(isNaN(cnt)){
                                     e.target.value = 0
