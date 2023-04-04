@@ -6,6 +6,17 @@ import styled from 'styled-components';
 import { Button, Row, Col } from 'react-bootstrap';
 import TextField from '@mui/material/TextField';
 
+let TabContentStyle = styled.div`
+    background-color : beige;
+    color : #3b3b3b;
+    width : 100%;
+    height : 300px;
+    display : flex;
+    justify-content: center;
+    align-items : center;
+`
+
+
 function DetailPage(props){
 
     let {id} = useParams();
@@ -83,10 +94,16 @@ function DetailPage(props){
 }
 
 function TabContent({tab}){
-    return (<div className="anim_tab_start anim_tab_end">{
+    // let [animActive, setAnimActive] = useState(false)
+    // useEffect(()=>{
+    //     setAnimActive(!animActive)
+    // }, [tab])
+
+    // className={animActive ? "anim_tab_start anim_tab_end" : "anim_tab_start "}
+    return (<div >{
             [
-            <p style={{color:'#3b3b3b'}}>인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 </p>,
-            <p style={{color:'#3b3b3b'}}>리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 </p> 
+            <TabContentStyle>인포메이션</TabContentStyle>,
+            <TabContentStyle>리뷰</TabContentStyle> 
         ][tab]
     }</div>)
 }
