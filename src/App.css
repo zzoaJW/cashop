@@ -1,3 +1,12 @@
+.anim_tab_start{
+  opacity: 0; /* 투명도 */
+}
+
+.anim_tab_end{
+  opacity: 1; /* 투명도 */
+  transition: opacity 0.5s; /* 애니메이션 적용 스타일 (여기서는 0.5초에 걸처 opacity가 변경되게함) */
+}
+
 .main-banner{
   height: 600px;
   background-image: url('./imgs/mainbannerimg.jpg');

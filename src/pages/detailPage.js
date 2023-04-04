@@ -1,3 +1,4 @@
+import '../App.css';
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
@@ -82,10 +83,12 @@ function DetailPage(props){
 }
 
 function TabContent({tab}){
-    return [
-        <p style={{color:'#3b3b3b'}}>인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 </p>,
-        <p style={{color:'#3b3b3b'}}>리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 </p> 
-    ][tab]
+    return (<div className="anim_tab_start anim_tab_end">{
+            [
+            <p style={{color:'#3b3b3b'}}>인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 인포메이션 </p>,
+            <p style={{color:'#3b3b3b'}}>리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 리뷰 </p> 
+        ][tab]
+    }</div>)
 }
 
 export default DetailPage;
