@@ -6,15 +6,6 @@ import styled, { keyframes } from 'styled-components';
 import { Button, Row, Col } from 'react-bootstrap';
 import TextField from '@mui/material/TextField';
 
-// const animTabContentStyle = keyframes`
-//     0%{
-//         opecity: 0;
-//     }
-//     100%{
-//         opecity: 1;
-//     }
-// `;
-
 const TabContentStyle = styled.div`
     background-color : beige;
     color : #3b3b3b;
@@ -23,8 +14,7 @@ const TabContentStyle = styled.div`
     display : flex;
     justify-content: center;
     align-items : center;
-    
-`;// animation : ${animTabContentStyle} 1s linear infinite
+`;
 
 
 function DetailPage(props){
@@ -34,23 +24,39 @@ function DetailPage(props){
 
     let [tab, setTab] = useState(0);
 
+    let [animEnd, setAnimEnd] = useState('')
+    useEffect(()=>{
+        // detailPage 화면전환 애니메이션
+        setAnimEnd('anim_tab_end')
+
+        return(()=>{
+            setAnimEnd('')
+        })
+    }, [])
+
     let [cnt, setCnt] = useState("")
     let [discount, setDiscount] = useState(true)
     let [btnDisable, setBtnDisable] = useState(true)
     useEffect(()=>{
-        setTimeout(()=>{ 
+        // 할인 배너
+        let sale = setTimeout(()=>{ 
             setDiscount(false)
         }, 2000)
 
+        // 주문하기 버튼
         if(cnt<1){
             setBtnDisable(true)
         }else{
             setBtnDisable(false)
         }
+        
+        return(()=>{
+            clearTimeout(sale)
+        })
     }, [cnt])
 
     return (
-        <div className="container">
+        <div className={'container anim_tab_start ' + animEnd}>
             {
                 discount? <div className='alert alert-warning'>2초 이내 구매시 할인</div> : null
             }
@@ -106,21 +112,24 @@ function DetailPage(props){
 function TabContent({tab}){
     let [animTabEnd, setAnimTabEnd] = useState('')
     useEffect(()=>{
-        setTimeout(()=>{
+        let tabAnim = setTimeout(()=>{
             setAnimTabEnd('anim_tab_end')
         }, 10)
         
-        return ()=>{
+        return (()=>{
+            clearTimeout(tabAnim)
             setAnimTabEnd('')
-        }
+        })
     }, [tab])
 
-    return (<div className={"anim_tab_start " + animTabEnd}>{
-            [
-            <TabContentStyle>인포메이션</TabContentStyle>,
-            <TabContentStyle>리뷰</TabContentStyle> 
-        ][tab]
-    }</div>)
+    return (
+        <div className={"anim_tab_start " + animTabEnd}>{
+                [
+                <TabContentStyle>인포메이션</TabContentStyle>,
+                <TabContentStyle>리뷰</TabContentStyle> 
+            ][tab]
+        }</div>
+    )
 }
 
 export default DetailPage;
