@@ -8,6 +8,7 @@ import data from './data.js';
 
 import HomePage from './pages/homePage';
 import AboutPage from './pages/aboutPage';
+import CartPage from './pages/cartPage';
 import DetailPage from './pages/detailPage.js';
 import ThreeDPage from './pages/threeDPage.js';
 
@@ -24,21 +25,30 @@ function App() {
         <Route path='/cashop' element={
           <HomePage furnitures={furnitures} setFurnitures={setFurnitures} navigate={navigate}/>
         }/>
+
         <Route path='/' element={
           <HomePage furnitures={furnitures} setFurnitures={setFurnitures} navigate={navigate}/>
         }/>
+
         <Route path='/about' element={
           <AboutPage/>
         }>
           <Route path='project' element={ <p>This project is simple React practice.</p> }/>
           <Route path='member' element={ <p>Made by JW Kim</p> }/>
         </Route>
+
+        <Route path='/cart' element={
+          <CartPage/>
+        }/>
+
         <Route path='/detail/:id' element={
           <DetailPage furnitures={furnitures}/>
         }/>
+
         <Route path='/3d' element={
           <ThreeDPage/>
         }/>
+
         <Route path='*' element={
           <div>없는 페이지 입니다.</div>
         }/>
@@ -58,7 +68,7 @@ function Navs({navigate}){
         <Nav className="me-auto">
           <Nav.Link onClick={()=>{ navigate("/")}}>Home</Nav.Link>
           <Nav.Link onClick={()=>{ navigate("/about")}}>Sweet</Nav.Link>
-          <Nav.Link onClick={()=>{ navigate("/detail/1")}}>Hooooooooome</Nav.Link>
+          <Nav.Link onClick={()=>{ navigate("/cart")}}>Hooooooooome</Nav.Link>
           <Nav.Link onClick={()=>{ navigate("/3d")}}> </Nav.Link>
         </Nav>
       </Container>
