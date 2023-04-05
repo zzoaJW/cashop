@@ -1,12 +1,21 @@
 import '../App.css';
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { Button, Row, Col } from 'react-bootstrap';
 import TextField from '@mui/material/TextField';
 
-let TabContentStyle = styled.div`
+// const animTabContentStyle = keyframes`
+//     0%{
+//         opecity: 0;
+//     }
+//     100%{
+//         opecity: 1;
+//     }
+// `;
+
+const TabContentStyle = styled.div`
     background-color : beige;
     color : #3b3b3b;
     width : 100%;
@@ -14,7 +23,8 @@ let TabContentStyle = styled.div`
     display : flex;
     justify-content: center;
     align-items : center;
-`
+    
+`;// animation : ${animTabContentStyle} 1s linear infinite
 
 
 function DetailPage(props){
@@ -94,13 +104,18 @@ function DetailPage(props){
 }
 
 function TabContent({tab}){
-    // let [animActive, setAnimActive] = useState(false)
-    // useEffect(()=>{
-    //     setAnimActive(!animActive)
-    // }, [tab])
+    let [animTabEnd, setAnimTabEnd] = useState('')
+    useEffect(()=>{
+        setTimeout(()=>{
+            setAnimTabEnd('anim_tab_end')
+        }, 10)
+        
+        return ()=>{
+            setAnimTabEnd('')
+        }
+    }, [tab])
 
-    // className={animActive ? "anim_tab_start anim_tab_end" : "anim_tab_start "}
-    return (<div >{
+    return (<div className={"anim_tab_start " + animTabEnd}>{
             [
             <TabContentStyle>인포메이션</TabContentStyle>,
             <TabContentStyle>리뷰</TabContentStyle> 
