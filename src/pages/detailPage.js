@@ -16,7 +16,6 @@ const TabContentStyle = styled.div`
     align-items : center;
 `;
 
-
 function DetailPage(props){
 
     let {id} = useParams();
@@ -28,10 +27,6 @@ function DetailPage(props){
     useEffect(()=>{
         // detailPage 화면전환 애니메이션
         setAnimEnd('anim_tab_end')
-
-        return(()=>{
-            setAnimEnd('')
-        })
     }, [])
 
     let [cnt, setCnt] = useState("")
@@ -124,10 +119,8 @@ function TabContent({tab}){
 
     return (
         <div className={"anim_tab_start " + animTabEnd}>{
-                [
-                <TabContentStyle>인포메이션</TabContentStyle>,
-                <TabContentStyle>리뷰</TabContentStyle> 
-            ][tab]
+                [ <TabContentStyle>인포메이션</TabContentStyle>,
+                <TabContentStyle>리뷰</TabContentStyle> ][tab]
         }</div>
     )
 }
