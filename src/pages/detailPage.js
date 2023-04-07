@@ -61,8 +61,10 @@ function DetailPage(props){
                 </div>
                 <div className="col-md-6">
                     <h4 className="pt-5" style={{color:'#3b3b3b'}}>{findFurniuture.title}</h4>
-                    <p style={{color:'#3b3b3b'}}>{findFurniuture.content}</p>
-                    <p style={{color:'#3b3b3b'}}>{findFurniuture.price}</p>
+                    <p style={{color:'#d3d3d3'}}>{findFurniuture.content}</p>
+                    <p style={{color:'#3b3b3b'}}>{
+                        cnt>0? findFurniuture.price*cnt : findFurniuture.price
+                    } KRW</p>
 
                     <div style={{ margin:'30px' }}/>
 
