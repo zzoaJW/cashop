@@ -32,10 +32,7 @@ function App() {
 
         <Route path='/about' element={
           <AboutPage/>
-        }>
-          <Route path='project' element={ <p>This project is simple React practice.</p> }/>
-          <Route path='member' element={ <p>Made by JW Kim</p> }/>
-        </Route>
+        }/>
 
         <Route path='/cart' element={
           <CartPage/>

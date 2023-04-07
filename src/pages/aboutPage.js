@@ -37,8 +37,6 @@ function AboutPage(){
             <div><Title>with Redux, style-component, Bootstrap ...</Title></div>
             <div><Title>Made by z(0o0a)</Title></div>
             <div><img style={{width:'100%', marginBottom:'200px'}} src={temp}></img></div>
-            {/* <button onClick={()=>{ navigate("/about/project")}}>project</button> <button onClick={()=>{ navigate("/about/member")}}>member</button>
-            <Outlet/> */}
         </div>
     )
 }
