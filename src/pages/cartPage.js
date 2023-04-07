@@ -3,8 +3,16 @@ import { useEffect, useState } from "react";
 import styled, { keyframes } from 'styled-components';
 
 function CartPage(){
+
+    // 화면전환 애니메이션
+    let [animEnd, setAnimEnd] = useState('')
+    useEffect(()=>{
+        setAnimEnd('anim_fade_end')
+    }, [])
+
+
     return (
-        <div>
+        <div className={'container anim_fade_start ' + animEnd}>
             <table class="table">
                 <thead>
                     <tr style={{borderColor:'#ffffff'}}>  {/* tr : 행 1개 생성*/}

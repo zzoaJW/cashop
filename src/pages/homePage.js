@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import '../App.css';
+import { useEffect, useState } from "react";
 import { Navbar, Container, Nav, Row, Col, Button} from 'react-bootstrap';
 import axios from 'axios';
 
@@ -6,8 +7,15 @@ function HomePage(props){
   let [loading, setLoading] = useState(false)
   let [loadFunNum, setLoadFunNum] = useState(0)
 
+  // 화면전환 애니메이션
+  let [animEnd, setAnimEnd] = useState('')
+  useEffect(()=>{
+      setAnimEnd('anim_fade_end')
+  }, [])
+      
+
   return (
-    <>
+    <div className={'anim_fade_start ' + animEnd}>
       <div className='main-banner'/>
 
       <Container>
@@ -57,7 +65,7 @@ function HomePage(props){
             })
       }} variant='black'>상품 더보기</Button>
 
-    </>
+    </div>
   )
 }
 

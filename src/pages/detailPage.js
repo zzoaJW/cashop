@@ -26,7 +26,7 @@ function DetailPage(props){
     let [animEnd, setAnimEnd] = useState('')
     useEffect(()=>{
         // detailPage 화면전환 애니메이션
-        setAnimEnd('anim_tab_end')
+        setAnimEnd('anim_fade_end')
     }, [])
 
     let [cnt, setCnt] = useState("")
@@ -51,7 +51,7 @@ function DetailPage(props){
     }, [cnt])
 
     return (
-        <div className={'container anim_tab_start ' + animEnd}>
+        <div className={'container anim_fade_start ' + animEnd}>
             {
                 discount? <div className='alert alert-warning'>2초 이내 구매시 할인</div> : null
             }
