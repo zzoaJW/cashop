@@ -110,7 +110,7 @@ function TabContent({tab}){
     let [animTabEnd, setAnimTabEnd] = useState('')
     useEffect(()=>{
         let tabAnim = setTimeout(()=>{
-            setAnimTabEnd('anim_tab_end')
+            setAnimTabEnd('anim_fade_end')
         }, 10)
         
         return (()=>{
@@ -120,7 +120,7 @@ function TabContent({tab}){
     }, [tab])
 
     return (
-        <div className={"anim_tab_start " + animTabEnd}>{
+        <div className={"anim_fade_start " + animTabEnd}>{
                 [ <TabContentStyle>인포메이션</TabContentStyle>,
                 <TabContentStyle>리뷰</TabContentStyle> ][tab]
         }</div>
