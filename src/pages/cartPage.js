@@ -19,27 +19,27 @@ function CartPage(){
                         <th scope="col">#</th>            {/* th, td : 행 1개 생성*/}
                         <th scope="col">상품명</th>
                         <th scope="col">수량</th>
-                        <th scope="col">가격</th>
+                        <th scope="col">KRW</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr style={{borderColor:'#ffffff'}}>
                         <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>Modern Wooden Chair</td>
+                        <td>1</td>
+                        <td>120000</td>
                     </tr>
                     <tr style={{borderColor:'#ffffff'}}>
+                        <td>2</td>
+                        <td>Cozy Home Sofa</td>
                         <td>1</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
+                        <td>110000</td>
                     </tr>
                     <tr style={{borderColor:'#ffffff'}}>
-                        <td>1</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
+                        <td>3</td>
+                        <td>Fancy Gold Chair</td>
+                        <td>3</td>
+                        <td>390000</td>
                     </tr>
                 </tbody>
             </table>

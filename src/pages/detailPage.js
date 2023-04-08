@@ -18,27 +18,33 @@ const TabContentStyle = styled.div`
 
 function DetailPage(props){
 
+    // 링크에서 가져온 id
     let {id} = useParams();
+    // App.js에서 가져온 props.furnitures
     let findFurniuture = props.furnitures.find((e) => e.id == id);
 
+    // tab : 현재 선택되어있는 tab의 인덱스
     let [tab, setTab] = useState(0);
 
+    // detailPage 화면전환 애니메이션
     let [animEnd, setAnimEnd] = useState('')
     useEffect(()=>{
-        // detailPage 화면전환 애니메이션
         setAnimEnd('anim_fade_end')
     }, [])
 
+    // 수량
     let [cnt, setCnt] = useState("")
+
+    // 할인 배너 보이게할건지/안보이게할건지
     let [discount, setDiscount] = useState(true)
     let [btnDisable, setBtnDisable] = useState(true)
     useEffect(()=>{
-        // 할인 배너
+        // 할인 배너 2초간 띄우다가 없애기
         let sale = setTimeout(()=>{ 
             setDiscount(false)
         }, 2000)
 
-        // 주문하기 버튼
+        // 주문하기 버튼 : 수량(==cnt)이 0 초과일때만 활성화
         if(cnt<1){
             setBtnDisable(true)
         }else{
@@ -107,6 +113,7 @@ function DetailPage(props){
 }
 
 function TabContent({tab}){
+    // tab 화면전환 애니메이션
     let [animTabEnd, setAnimTabEnd] = useState('')
     useEffect(()=>{
         let tabAnim = setTimeout(()=>{
