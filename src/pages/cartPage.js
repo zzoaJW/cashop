@@ -1,5 +1,6 @@
 import '../App.css';
 import { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
 
 function CartPage(){
@@ -10,13 +11,15 @@ function CartPage(){
         setAnimEnd('anim_fade_end')
     }, [])
 
+    let store = useSelector((state)=>{ return state })
 
+    
     return (
         <div className={'container anim_fade_start ' + animEnd}>
             <table class="table">
                 <thead>
-                    <tr style={{borderColor:'#ffffff'}}>  {/* tr : 행 1개 생성*/}
-                        <th scope="col">#</th>            {/* th, td : 행 1개 생성*/}
+                    <tr>  {/* tr : 행 1개 생성*/}
+                        <th scope="col">#</th>  {/* th, td : 행 1개 생성*/}
                         <th scope="col">상품명</th>
                         <th scope="col">수량</th>
                         <th scope="col">KRW</th>
