@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
 
+let Button = styled.button`
+    background-color : white
+`
+
 function CartPage(){
 
     // 화면전환 애니메이션
@@ -11,9 +15,10 @@ function CartPage(){
         setAnimEnd('anim_fade_end')
     }, [])
 
-    let store = useSelector((state)=>{ return state })
+    // store
+    let cart = useSelector((state)=>{ return state.cart })
 
-    
+
     return (
         <div className={'container anim_fade_start ' + animEnd}>
             <table class="table">
@@ -23,30 +28,32 @@ function CartPage(){
                         <th scope="col">상품명</th>
                         <th scope="col">수량</th>
                         <th scope="col">KRW</th>
+                        <th/>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr style={{borderColor:'#ffffff'}}>
-                        <td>1</td>
-                        <td>Modern Wooden Chair</td>
-                        <td>1</td>
-                        <td>120000</td>
-                    </tr>
-                    <tr style={{borderColor:'#ffffff'}}>
-                        <td>2</td>
-                        <td>Cozy Home Sofa</td>
-                        <td>1</td>
-                        <td>110000</td>
-                    </tr>
-                    <tr style={{borderColor:'#ffffff'}}>
-                        <td>3</td>
-                        <td>Fancy Gold Chair</td>
-                        <td>3</td>
-                        <td>390000</td>
-                    </tr>
+                    {
+                        cart.map(function(c, i){
+                            return (
+                                <TableBody funiture={c}/>
+                            )
+                        })
+                    }
                 </tbody>
             </table>
         </div>
+    )
+}
+
+function TableBody({funiture}){
+    return (
+        <tr style={{borderColor:'#ffffff'}}>
+            <td>{funiture.id}</td>
+            <td>{funiture.name}</td>
+            <td>{funiture.count}</td>
+            <td>{funiture.price*funiture.count}</td>
+            <td><Button>+</Button></td>
+        </tr>
     )
 }
 
