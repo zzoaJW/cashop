@@ -2,7 +2,9 @@ import '../App.css';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
-import { addAge, changeName, addCart, cleanCart, changeCount } from './../store.js';
+import { addAge, changeName } from '../slices/userSlice.js';
+import { addCart, cleanCart, changeCount } from '../slices/cartSlice.js';
+
 
 let Button = styled.button`
     background-color : white
