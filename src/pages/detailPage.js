@@ -1,7 +1,10 @@
 import '../App.css';
 import { useEffect, useState } from "react";
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
+
+import { addCart } from '../slices/cartSlice.js';
 
 import { Button, Row, Col } from 'react-bootstrap';
 import TextField from '@mui/material/TextField';
@@ -25,6 +28,8 @@ function DetailPage(props){
 
     // tab : 현재 선택되어있는 tab의 인덱스
     let [tab, setTab] = useState(0);
+
+    let dispatch = useDispatch()
 
     // detailPage 화면전환 애니메이션
     let [animEnd, setAnimEnd] = useState('')
@@ -87,6 +92,12 @@ function DetailPage(props){
                                 }
                             }}/>
                     <p/>
+                    <Button style={{color:'#70996e'}} variant="outline-success" 
+                        disabled={btnDisable}
+                        onClick={()=>{
+                                let newF = {id : findFurniuture.id, name : findFurniuture.title, count : cnt, price : findFurniuture.price}
+                                dispatch(addCart(newF))
+                            }}>장바구니 담기</Button>
                     <Button style={{color:'#70996e'}} variant="outline-success" 
                         disabled={btnDisable}
                         onClick={()=>{
