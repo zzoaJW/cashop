@@ -27,8 +27,10 @@ function CartPage(props){
     return (
         <div className={'container anim_fade_start ' + animEnd}>
             <div>
-                <p style={{color:'#9DD84B' }}>{user.age}살 {user.name} 님</p>
-                <Button onClick={()=>{ dispatch(addAge(100)) }}>나이 먹기</Button> <Button onClick={()=>{ dispatch(changeName()) }}>이름 바꾸기 (1회)</Button>
+                <p style={{ color:'#9DD84B' }}>{user.age}살 {user.name} 님</p>
+                <Button onClick={()=>{ dispatch(addAge(100)) }}>나이 먹기</Button>
+                <Button onClick={()=>{ dispatch(changeName()) }}>이름 바꾸기 (1회)</Button>
+                <Button onClick={()=>{ dispatch(cleanCart()) }}>장바구니 비우기</Button>
             </div>
             <table class="table">
                 <thead>
@@ -50,9 +52,7 @@ function CartPage(props){
                     }
                 </tbody>
             </table>
-            <Button onClick={()=>{
-                dispatch(cleanCart())
-            }}>clean cart</Button>
+            {/* <p>전체 가격 {cart.reduce((totalPrice, c)=>{return totalPrice + c.price*c.count })}</p> */}
         </div>
     )
 }
@@ -61,9 +61,10 @@ function TableBody({funiture, dispatch, navigate}){
     return (
         <tr style={{borderColor:'#ffffff'}}>
             <td>{funiture.id}</td>
-            <td onClick={()=>{
+            {/* <td onClick={()=>{
                 navigate(`/detail/${funiture.id}`)
-            }}>{funiture.name}</td>
+            }}>{funiture.name}</td> */}
+            <td>{funiture.name}</td>
             <td>
                 <Button onClick={()=>{
                     dispatch(minusCount(funiture.id))
