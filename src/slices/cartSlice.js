@@ -3,9 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 
 let cart = createSlice({
     name : 'cart',
-    initialState : [ {id : 0, name : 'White and Black', count : 2, price : 23000}, 
-                      {id : 1, name : 'wwwwow', count : 1, price : 32000}, 
-                      {id : 2, name : 'Grey Yordan', count : 1, price : 50000} ],
+    initialState : [ {id : 10, name : 'White and Black', count : 2, price : 23000}, 
+                      {id : 11, name : 'Yellow Car', count : 1, price : 32000}, 
+                      {id : 12, name : 'Grey Yordan', count : 1, price : 50000} ],
     reducers : {
         addCart(state){  // 장바구니에 상품 추가
           return state + {}

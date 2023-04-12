@@ -10,7 +10,7 @@ let Button = styled.button`
     background-color : white
 `
 
-function CartPage(){
+function CartPage(props){
 
     // 화면전환 애니메이션
     let [animEnd, setAnimEnd] = useState('')
@@ -44,7 +44,7 @@ function CartPage(){
                     {
                         cart.map(function(c, i){
                             return (
-                                <TableBody funiture={c} dispatch={dispatch}/>
+                                <TableBody funiture={c} dispatch={dispatch} navigate={props.navigate}/>
                             )
                         })
                     }
@@ -57,11 +57,13 @@ function CartPage(){
     )
 }
 
-function TableBody({funiture, dispatch}){
+function TableBody({funiture, dispatch, navigate}){
     return (
         <tr style={{borderColor:'#ffffff'}}>
             <td>{funiture.id}</td>
-            <td>{funiture.name}</td>
+            <td onClick={()=>{
+                navigate(`/detail/${funiture.id}`)
+            }}>{funiture.name}</td>
             <td>
                 <Button onClick={()=>{
                     dispatch(minusCount(funiture.id))

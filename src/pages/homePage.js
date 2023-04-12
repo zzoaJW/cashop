@@ -23,7 +23,7 @@ function HomePage(props){
           {
             props.furnitures.map(function(f, i){
               return (
-                <Card furnitures={f} navigate={props.navigate} id={i}/>
+                <Card furnitures={f} navigate={props.navigate} id={f.id}/>
               )
             })
           }
@@ -71,7 +71,7 @@ function HomePage(props){
 
   function Card({furnitures, navigate, id}){
     return (
-      <Col onClick={()=>{ navigate(`/detail/${id}`)}}>
+      <Col onClick={()=>{ navigate(`/detail/${id}`) }}>
         <img src={furnitures.img} width="80%"/>
         <h4>{furnitures.title}</h4>
         <p>{furnitures.content}</p>

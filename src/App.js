@@ -15,6 +15,7 @@ import ThreeDPage from './pages/threeDPage.js';
 
 function App() {
   let [furnitures, setFurnitures] = useState(data);
+  console.log(furnitures)
   let navigate = useNavigate();
 
   return (
@@ -35,7 +36,7 @@ function App() {
         }/>
 
         <Route path='/cart' element={
-          <CartPage/>
+          <CartPage navigate={navigate}/>
         }/>
 
         <Route path='/detail/:id' element={
