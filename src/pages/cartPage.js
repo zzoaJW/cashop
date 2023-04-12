@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
 import { addAge, changeName } from '../slices/userSlice.js';
-import { addCart, cleanCart, minusCount, addCount } from '../slices/cartSlice.js';
+import { addCart, delCart, cleanCart, minusCount, addCount } from '../slices/cartSlice.js';
 
 
 let Button = styled.button`
@@ -72,6 +72,10 @@ function TableBody({funiture, dispatch}){
                 }}>+</Button>
             </td>
             <td>{funiture.price * funiture.count}</td>
+            <td><Button onClick={()=>{
+                    dispatch(delCart(funiture.id))
+                }}>삭제</Button>
+            </td>
         </tr>
     )
 }
