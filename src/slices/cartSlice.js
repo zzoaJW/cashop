@@ -8,7 +8,16 @@ let cart = createSlice({
                       {id : 12, name : 'Grey Yordan', count : 1, price : 50000} ],
     reducers : {
         addCart(state, action){  // 장바구니에 상품 추가
-          state.push(action.payload)
+          let idx = state.findIndex(e => e.id == action.payload.id)
+
+          if (idx == -1){
+            // 없으면 추가
+            state.push(action.payload)
+          }else {
+            // cart에 이미 있으면 수량만 추가
+            let goods = state.find(e => e.id == action.payload.id)
+            goods.count += action.payload.count
+          }
         },
         delCart(state, action){  // 장바구니에 상품 삭제
           // 상품의 cart id를 가져옴

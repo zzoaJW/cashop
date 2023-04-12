@@ -95,8 +95,10 @@ function DetailPage(props){
                     <Button style={{color:'#70996e'}} variant="outline-success" 
                         disabled={btnDisable}
                         onClick={()=>{
-                                let newF = {id : findFurniuture.id, name : findFurniuture.title, count : cnt, price : findFurniuture.price}
+                                let newF = {id : findFurniuture.id, name : findFurniuture.title, count : cnt*1, price : findFurniuture.price}
                                 dispatch(addCart(newF))
+
+                                // alert('\'' + findFurniuture.title + '\' 상품 ' + cnt + '개 장바구니 담기 완료')
                             }}>장바구니 담기</Button>
                     <Button style={{color:'#70996e'}} variant="outline-success" 
                         disabled={btnDisable}
