@@ -44,7 +44,7 @@ function CartPage(props){
                 </thead>
                 <tbody>
                     {
-                        cart.map(function(c, i){
+                        cart.map(function(c){
                             return (
                                 <TableBody funiture={c} dispatch={dispatch} navigate={props.navigate}/>
                             )
