@@ -11,7 +11,7 @@
 
 [내용]  
 - [코딩애플 React 강의](https://codingapple.com/course/react-basic/)  
-- 사용해보고 싶은 라이브러리 (styled-component, Lottie, MUI)
+- 강의 외 라이브러리 적용 (styled-component, Lottie, MUI)
 
 <br/>
 
